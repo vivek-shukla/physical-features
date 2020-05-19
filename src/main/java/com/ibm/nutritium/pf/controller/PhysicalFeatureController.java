@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -40,15 +41,10 @@ public class PhysicalFeatureController {
 		return ResponseEntity.ok(this.physicalFeatureService.fetchByUserId(userId));
 	}
 	
-	@GetMapping(path = Constants.DELETE_BY_ID,produces = MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(path = Constants.DELETE_BY_ID,produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<PhysicalFeature> deleteByUserId(@PathVariable(required = true,name = "userId") String userId) 
 			throws PhysicalFeatureException{
 		this.physicalFeatureService.deleteByUserId(userId);
 		return ResponseEntity.ok().build();
-	}
-	
-	
-	
-	
-	
+	}	
 }
