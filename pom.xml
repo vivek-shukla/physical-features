@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ibm.nutritium</groupId>
-	<artifactId>physical-features</artifactId>
+	<artifactId>cc-physical-features</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>physical-features</name>
 	<description>Microservice for Physical features of User </description>
