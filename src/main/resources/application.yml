@@ -1,0 +1,48 @@
+#
+#MongoClientURI uri = new MongoClientURI(
+#    "mongodb://cc_exception_dev:<password>@physical-features-dev-shard-00-00-kujot.mongodb.net:27017,physical-features-dev-shard-00-01-kujot.mongodb.net:27017,physical-features-dev-shard-00-02-kujot.mongodb.net:27017/test?ssl=true&replicaSet=physical-features-dev-shard-0&authSource=admin&retryWrites=true&w=majority");
+#
+#MongoClient mongoClient = new MongoClient(uri);
+#MongoDatabase database = mongoClient.getDatabase("test");
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://cc_exception_dev:nutritium@physical-features-dev-kujot.mongodb.net/test?ssl=false
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          github:
+#            clientId: d3355aaa7fccf12be1e5
+#            clientSecret: ebbe3bc565f864f150420036ee12dd121079ecbf
+
+#Mongo db prop
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
