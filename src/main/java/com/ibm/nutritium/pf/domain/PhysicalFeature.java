@@ -1,9 +1,11 @@
 package com.ibm.nutritium.pf.domain;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 import java.util.UUID;
-
 import javax.validation.constraints.Min;
+
+import org.hibernate.validator.constraints.UniqueElements;
+import org.springframework.data.annotation.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,9 +14,10 @@ import lombok.Data;
 @AllArgsConstructor
 public class PhysicalFeature {
     
-	
+	@Id
 	private String physicalFeatureId;
 	
+	@UniqueElements
     private String userId;
     
     @Min(value = 0)
@@ -23,7 +26,7 @@ public class PhysicalFeature {
     @Min(value = 0)
     private Float weight;
     
-    private ZonedDateTime dateOfBirth;
+    private LocalDateTime dateOfBirth;
     
     private Gender gender;
     
@@ -31,7 +34,7 @@ public class PhysicalFeature {
     
     private Float bmr;
     
-    private Float caloriesBurn;
+    private Float tdee;
     
     public PhysicalFeature() {
     	this.physicalFeatureId = UUID.randomUUID().toString();

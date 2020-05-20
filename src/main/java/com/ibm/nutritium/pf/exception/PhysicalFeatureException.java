@@ -38,8 +38,4 @@ public class PhysicalFeatureException extends Exception {
 	public PhysicalFeatureException(ErrorCode errorCode) {
 		this.errorCode = errorCode;
 	}
-	
-	
-	
-
 }

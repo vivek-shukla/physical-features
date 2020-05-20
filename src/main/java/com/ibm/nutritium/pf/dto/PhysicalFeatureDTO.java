@@ -25,4 +25,7 @@ public class PhysicalFeatureDTO {
     
     @NotNull
     private Integer genderCode;
+    
+    @Min(value = Constants.ONE)
+    private Float activityFactor;
 }

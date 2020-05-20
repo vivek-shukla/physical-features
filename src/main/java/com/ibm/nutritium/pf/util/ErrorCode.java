@@ -12,4 +12,8 @@ public enum ErrorCode {
 		
 		this.errorStatus = errorStatus;
 	}
+	
+	public HttpStatus getErrorStatus() {
+		return this.errorStatus;
+	}
 }
