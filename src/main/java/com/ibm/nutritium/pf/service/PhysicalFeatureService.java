@@ -9,23 +9,34 @@ import java.util.TimeZone;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.ibm.nutritium.pf.domain.Gender;
 import com.ibm.nutritium.pf.domain.PhysicalFeature;
 import com.ibm.nutritium.pf.dto.PhysicalFeatureDTO;
+import com.ibm.nutritium.pf.exception.ExceptionProcessor;
 import com.ibm.nutritium.pf.exception.PhysicalFeatureException;
-import com.ibm.nutritium.pf.repositary.PhysicalFeatureRepositary;
+import com.ibm.nutritium.pf.repository.PhysicalFeatureRepository;
 import com.ibm.nutritium.pf.util.Constants;
 import com.ibm.nutritium.pf.util.ErrorCode;
+
+import lombok.extern.slf4j.Slf4j;
 
 /*
  * @author vshukl13
  */
 
 @Service
+@Slf4j
 public class PhysicalFeatureService {
 	
 	@Autowired
-	private PhysicalFeatureRepositary physicalFeatureRepositary;
+	private PhysicalFeatureRepository physicalFeatureRepositary;
+	
+	@Autowired
+	private PhysicalFeaturesRESTCall physicalFeaturesRESTCall;
+	
+	@Autowired
+	private ExceptionProcessor exceptionProcessor;
 	
 	/*
 	 * Create Physical Feature if userId not present in database else create
@@ -62,7 +73,15 @@ public class PhysicalFeatureService {
 			   break;
 		}
 		
-		return this.physicalFeatureRepositary.save(physicalFeature);
+		PhysicalFeature pf = this.physicalFeatureRepositary.save(physicalFeature);
+		try {
+			log.info("Feeding Recommendation Engine for:: ",pf.getPhysicalFeatureId());
+			physicalFeaturesRESTCall.feedRecommentationML(pf);
+		} catch (Exception e) {
+			log.error("Exception While Feeding Recommendation engine");
+			exceptionProcessor.processExcetion(e, pf);	
+		}
+		return pf;
 	}
 	
 	/*

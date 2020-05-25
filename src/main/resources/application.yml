@@ -1,9 +1,9 @@
-
+spring:  application:    name: physical-features    service.url.recommendation: http://localhost:8090/v1/feedhystrix.command.feedRecommentationML.execution.isolation.thread.timeoutInMilliseconds: "3000"
       
       
       
       
-      
+       
       
       
       

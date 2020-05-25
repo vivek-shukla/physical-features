@@ -1,4 +1,4 @@
-package com.ibm.nutritium.pf.repositary;
+package com.ibm.nutritium.pf.repository;
 
 import java.util.Optional;
 
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.ibm.nutritium.pf.domain.PhysicalFeature;
 
 @Repository
-public interface PhysicalFeatureRepositary extends MongoRepository<PhysicalFeature, String> {
+public interface PhysicalFeatureRepository extends MongoRepository<PhysicalFeature, String> {
    
 	public Optional<PhysicalFeature> findByPhysicalFeatureId(String physicalFeatureId);
 	

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: physical-features
+  namespace: cc-uc-2-exception
+spec:
+  selector:
+    matchLabels:
+      app: physical-features
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: physical-features
+    spec:
+      containers:
+        - name: physical-features
+          image: docker.io/vshuklajr/physical-features
+          resources:
+           limits:
+            cpu: 200m
+            memory: 300Mi
+          requests:
+            cpu: 150m
+            memory: 250Mi
+          ports:
+            - containerPort: 8080

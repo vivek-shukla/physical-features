@@ -3,5 +3,7 @@ apiVersion: v1
 metadata:
   name: physical-feature
   namespace: cc-uc-2-exception
-data: 
-  
+data:
+  spring.application.name: "physical-features" 
+  service.url.recommendation: "http://recommendation-engine/v1/feed"
+  hystrix.command.feedRecommentationML.execution.isolation.thread.timeoutInMilliseconds: "3000"
